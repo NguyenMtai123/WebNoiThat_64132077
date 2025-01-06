@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Study\\Phat_Tr_Web\\WebNoiThat_64132077\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EA4D7E88-C65F-4744-AAD6-02AA2972C1A8}|WebNoiThat_64132077.csproj|d:\\study\\phat_tr_web\\webnoithat_64132077\\areas\\admin\\views\\silde_64132077\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EA4D7E88-C65F-4744-AAD6-02AA2972C1A8}|WebNoiThat_64132077.csproj|solutionrelative:areas\\admin\\views\\silde_64132077\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA4D7E88-C65F-4744-AAD6-02AA2972C1A8}|WebNoiThat_64132077.csproj|D:\\Study\\Phat_Tr_Web\\WebNoiThat_64132077\\areas\\admin\\views\\contact_64132077\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EA4D7E88-C65F-4744-AAD6-02AA2972C1A8}|WebNoiThat_64132077.csproj|solutionrelative:areas\\admin\\views\\contact_64132077\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Study\\Phat_Tr_Web\\WebNoiThat_64132077\\Areas\\Admin\\Views\\Silde_64132077\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Silde_64132077\\Index.cshtml",
+              "ToolTip": "D:\\Study\\Phat_Tr_Web\\WebNoiThat_64132077\\Areas\\Admin\\Views\\Silde_64132077\\Index.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\Silde_64132077\\Index.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACEAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-06T12:09:27.845Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Study\\Phat_Tr_Web\\WebNoiThat_64132077\\Areas\\Admin\\Views\\Contact_64132077\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Contact_64132077\\Index.cshtml",
+              "ToolTip": "D:\\Study\\Phat_Tr_Web\\WebNoiThat_64132077\\Areas\\Admin\\Views\\Contact_64132077\\Index.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\Contact_64132077\\Index.cshtml",
+              "ViewState": "AgIAAL8AAAAAAAAAAAAAAMgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-06T09:49:09.328Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
