@@ -45,6 +45,108 @@ namespace WebNoiThat_64132077.Areas.Admin.Controllers
             return View(items.ToPagedList(pageNumber, pageSize));
         }
 
+        // GET: Orders/Create
+        public ActionResult Create()
+        {
+            // Tạo mã đơn hàng mới
+            var lastOrder = db.Orders
+                .OrderByDescending(x => x.ID)
+                .FirstOrDefault();
+
+            string newCode = "DH01";
+            if (lastOrder != null && !string.IsNullOrEmpty(lastOrder.Code))
+            {
+                string numberPart = lastOrder.Code.Substring(2); // Lấy phần số
+                int number = int.Parse(numberPart);
+                number++;
+                newCode = "DH" + number.ToString("D2"); // Format lại với 2 chữ số
+            }
+
+            var newOrder = new Order
+            {
+                Code = newCode,
+                OrderDate = DateTime.Now
+            };
+
+            ViewBag.CustomerID = new SelectList(db.Users.Where(x => x.GroupID == "CUSTOMER"), "ID", "Fullname");
+            ViewBag.EmployeeName = new SelectList(db.Users.Where(x => x.GroupID == "EMPLOYEE"), "Fullname", "Fullname");
+            ViewBag.Products = db.Products.ToList();
+
+            return View(newOrder);
+        }
+
+
+        [HttpPost]
+        public ActionResult Create(Order order, int[] ProductIDs, int[] Quantities)
+        {
+            if (ModelState.IsValid)
+            {
+                order.OrderDate = DateTime.Now;
+                order.DeliveryDate = DateTime.Now;
+
+                // Lấy tên và số điện thoại khách hàng từ bảng User
+                if (order.CustomerID.HasValue)
+                {
+                    var customer = db.Users.Find(order.CustomerID.Value);
+                    if (customer != null)
+                    {
+                        order.CustomerName = customer.Fullname;
+                        // Nếu bạn có thêm CustomerPhone thì thêm:
+                        //order.CustomerPhone = customer.Phone;
+                    }
+                }
+
+                db.Orders.Add(order);
+                db.SaveChanges();
+
+                // Lưu chi tiết đơn hàng
+                if (ProductIDs != null && Quantities != null)
+                {
+                    for (int i = 0; i < ProductIDs.Length; i++)
+                    {
+                        var product = db.Products.Find(ProductIDs[i]);
+                        if (product != null)
+                        {
+                            var detail = new OrderDetail
+                            {
+                                OrderID = order.ID,
+                                ProductID = product.ID,
+                                ProductName = product.Name,
+                                ProductCode = product.Code,
+                                Quantity = Quantities[i],
+                                Price = product.Price,
+                            };
+                            db.OrderDetails.Add(detail);
+                        }
+                    }
+                    db.SaveChanges();
+                }
+
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.CustomerID = new SelectList(db.Users.Where(x => x.GroupID == "CUSTOMER"), "ID", "Fullname", order.CustomerID);
+            ViewBag.EmployeeName = new SelectList(db.Users.Where(x => x.GroupID == "EMPLOYEE"), "Fullname", "Fullname", order.EmployeeName);
+            ViewBag.Products = db.Products.ToList();
+
+            return View(order);
+        }
+
+        public ActionResult Print(int id)
+        {
+            var order = db.Orders
+            .Include(o => o.User) // đảm bảo có User.Phone
+            .Include(o => o.OrderDetails)
+            .FirstOrDefault(o => o.ID == id);
+
+
+            if (order == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(order);
+        }
 
         public ActionResult View(int id)
         {
@@ -105,7 +207,17 @@ namespace WebNoiThat_64132077.Areas.Admin.Controllers
             }
 
             // Cập nhật trạng thái đơn hàng
-            order.EmployeeName = userSession.UserName;  // Cập nhật tên nhân viên từ session
+            // Lấy tên đầy đủ nhân viên từ bảng User
+            var employee = db.Users.Find(userSession.UserID);
+            if (employee != null)
+            {
+                order.EmployeeName = employee.Fullname;
+            }
+            else
+            {
+                return Json(new { message = "Không tìm thấy thông tin nhân viên!", Success = false });
+            }
+            // Cập nhật tên nhân viên từ session
             order.Status = trangthai;
             db.Entry(order).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();

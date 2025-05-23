@@ -29,44 +29,57 @@
         </div>
         <div class="card-body">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label>Mã đơn hàng</label>
                         <p class="form-control">@Model.Code</p>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group">
-                        <label>Họ tên khách</label>
+                        <label>Mã khách hàng</label>
+                        <p class="form-control">@Model.CustomerID</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Họ tên khách hàng</label>
                         <p class="form-control">@Model.CustomerName</p>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group">
-                        <label>Tổng tiền</label>
-                        <p class="form-control">@WebNoiThat_64132077.Common.Common.FormatNumber(Model.TotalAmount, 0) đ</p>
+                        <label>Số điện thoại</label>
+                        <p class="form-control">@Model.User.Phone</p>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Địa chỉ giao hàng</label>
+                        <p class="form-control">@Model.User.Address</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Nhân viên lập</label>
+                        <p class="form-control">@Model.EmployeeName</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
                     <div class="form-group">
                         <label>Ngày tạo</label>
                         <p class="form-control">@(Model.OrderDate.HasValue ? Model.OrderDate.Value.ToString("dd/MM/yyyy") : "")</p>
                     </div>
                 </div>
-
-            </div>
-            <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group">
-                        <label>Phương thức thanh toán</label>
-                        <p class="form-control">@(Model.TypePayment == 1 ? "COD" : "Chuyển khoản")</p>
+                        <label>Ngày giao hàng</label>
+                        <p class="form-control">@(Model.DeliveryDate.HasValue ? Model.DeliveryDate.Value.ToString("dd/MM/yyyy") : "")</p>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group">
-                        <label>Phương thức thanh toán</label>
+                        <label>Trạng thái</label>
                         <p class="form-control">
                             @if (Model.Status == 1)
                             {
@@ -91,12 +104,21 @@
                 <div class="col-12">
                     @Html.Action("Partial_SanPham", "Order_64132077", new { id = Model.ID })
                 </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Tổng tiền</label>
+                        <p class="form-control">@WebNoiThat_64132077.Common.Common.FormatNumber(Model.TotalAmount, 0) VNĐ</p>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                        <a href="@Url.Action("Print", "Order_64132077", new { id = Model.ID })" target="_blank" class="btn btn-primary">
+                            <i class="fa fa-print"></i> In hóa đơn
+                        </a>
+                </div>
             </div>
         </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
 
-        </div>
+
         <!-- /.card-footer-->
     </div>
     <!-- /.card -->

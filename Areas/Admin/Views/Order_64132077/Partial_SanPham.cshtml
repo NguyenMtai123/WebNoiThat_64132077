@@ -5,7 +5,7 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>#</th>
+                <th>STT</th>
                 <th>Mã sản phẩm</th>
                 <th>Tên sản phẩm</th>
                 <th>Giá</th>
@@ -23,7 +23,7 @@
                     <td>@item.ProductName</td>
                     <td>@item.Price</td>
                     <td>@item.Quantity</td>
-                    <td>@WebNoiThat_64132077.Common.Common.FormatNumber((item.Price * item.Quantity), 0)</td>
+                    <td>@WebNoiThat_64132077.Common.Common.FormatNumber((item.Price * item.Quantity), 0) VNĐ</td>
                 </tr>
                 i++;
             }

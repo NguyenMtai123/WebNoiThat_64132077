@@ -21,8 +21,14 @@
 
         public string Code { get; set; }
         [Display(Name = "Ngày tạo")]
-
         public DateTime? OrderDate { get; set; }
+
+
+        [Display(Name = "Ngày giao hàng")]
+        [DataType(DataType.Date)]
+        public DateTime? DeliveryDate { get; set; }
+
+
         [Display(Name = "Trạng thái")]
 
         public int Status { get; set; }

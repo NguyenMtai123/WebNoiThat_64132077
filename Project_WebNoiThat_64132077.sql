@@ -2,6 +2,8 @@ CREATE DATABASE [WebNoiThat_64132077]
 GO
 USE [WebNoiThat_64132077]
 GO
+ALTER TABLE Orders ADD DeliveryDate DATETIME NULL;
+
 /****** Object:  Table [dbo].[About]    Script Date: 1/6/2025 9:06:02 PM ******/
 SET ANSI_NULLS ON
 GO

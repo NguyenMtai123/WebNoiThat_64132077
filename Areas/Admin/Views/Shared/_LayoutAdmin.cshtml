@@ -26,7 +26,7 @@
             @RenderPage("_LeftMenu.cshtml")
             <!-- Main Content -->
             <div class="main-content">
-                @RenderSection("header", required: true)
+                @RenderSection("header", required: false)
                 @if (TempData["AlertMessage"] != null)
                 {
                     <div id="AlertBox" class="alert @TempData["AlertType"] hide">
@@ -60,5 +60,6 @@
     <script src="~/Assets/admin/Plugin/ckeditor/ckeditor.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @RenderSection("script", required: false)
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

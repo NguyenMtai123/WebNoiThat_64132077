@@ -3709,6 +3709,8 @@
     <Content Include="Areas\Admin\Views\Support_64132077\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Support_64132077\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Statistic_64132077\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Order_64132077\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Order_64132077\Print.cshtml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />

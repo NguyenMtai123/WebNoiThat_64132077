@@ -21,6 +21,7 @@
         </div><!-- /.row -->
     </div>
 }
+
 <section class="section">
     <div class="section-body">
 
@@ -41,18 +42,24 @@
                             }
                         </div>
                     </div>
+                    <!-- Nút tạo mới -->
+                    <div class="" , style="margin: -5px -5px 10px 25px;">
+                        @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-outline-primary" })
+                    </div>
+                   
 
                     <div class="card-body p-1">
                         <div class="table-responsive">
                             <table class="table table-striped">
                                 <tr>
-                                    <th>#</th>
+                                    <th>STT</th>
                                     <th>Mã đơn hàng</th>
                                     <th>Tên Khách hàng</th>
-                                    <th>Tiền</th>
+                                    <th>Tổng Tiền</th>
                                     <th>Phương thức</th>
-                                    <th>Trạng thái</th>
                                     <th>Ngày đặt hàng</th>
+                                    <th>Ngày giao hàng</th>
+                                    <th>Trạng thái</th>
                                     <th>Action</th>
                                 </tr>
                                 @if (Model != null && Model.Any())
@@ -66,8 +73,9 @@
                                             <td>@item.Code</td>
                                             <td>@item.CustomerName</td>
                                             <td>@item.TotalAmount</td>
-                                            <td>@(item.TypePayment==1?"COD":"Chuyển khoản")</td>
+                                            <td>@(item.TypePayment==1?"Chuyển khoản":"Tiền mặt")</td>
                                             <td>@(item.OrderDate.HasValue ? item.OrderDate.Value.ToString("dd/MM/yyyy") : "")</td>
+                                            <td>@(item.DeliveryDate.HasValue ? item.OrderDate.Value.ToString("dd/MM/yyyy") : "")</td>
                                             <td>
                                                 @if (item.Status == 1)
                                                 {
